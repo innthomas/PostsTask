@@ -15,12 +15,13 @@ function getPosts(){
                 html += 
                 `<div class="col-12 py-5 col-lg-4 col-md-6">
                 <div class="h-100 text-center  mx-auto">
-                            <div class="card mb-3 shadow-sm col text-center  h-100 py-5">
-                                <div class="card-body">
-                                    <p class="card-text">${post.title}</p>
-                                    <div class="d-flex justify-content-between align-items-center">
+                            <div class="card mb-0 shadow-lg col text-center  h-100 py-5" style="width: 18rem;">
+                                <div class="card-body py-0">
+                                <img src="https://picsum.photos/300/200?random=${post.id}" class="card-img-top">
+                                    <h5 class="card-title text-capitalize">${post.title}</h5>
+                                    <p class="card-text col-sm-3 font-italic text-truncate">${post.body}</p>
                                         <div class="btn-group">
-                                        <button onclick="getDetails(${post.id})" type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button onclick="getDetails(${post.id})" type="button" class="btn btn-sm btn-outline-secondary card-link">View Post</button>
                                             </div>
                                         </div>
                                    </div>
@@ -49,11 +50,11 @@ function getDetails(id){
         let html = "";
         html += `<div class="container">
         <header>
-            <h3 >${data.title}</h3>
-            <img src="https://picsum.photos/300/200" alt="image">
+            <h3 class="display-4 text-capitalize" >${data.title}</h3>
+            <img class="mb-2 rounded mx-auto d-block img-fluid" src="https://picsum.photos/300/200?random=${id}" alt="image">
         </header>
         <main>
-        <p>${data.body}</p>
+        <p class="pt-2 fs-4">${data.body}</p>
         </main>
         <button onclick="getPosts()" type="button" class="btn btn-sm btn-outline-secondary">Return</button>
 

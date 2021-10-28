@@ -12,24 +12,19 @@ function getPosts(){
        let html = "";
          data.forEach(post => {
              //console.log(post.title);
-                html += `<div class="col-md-4">
-                            <div class="card mb-4 shadow-sm p-2">
+                html += 
+                `<div class="col-12 py-5 col-lg-4 col-md-6">
+                <div class="h-100 text-center  mx-auto">
+                            <div class="card mb-3 shadow-sm col text-center  h-100 py-5">
                                 <div class="card-body">
-
-                               
-                                <div class="card-body">
-                                
                                     <p class="card-text">${post.title}</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                        <a href="postBody.html" onclick="postOnClick(${post.id})" class="btn btn-sm btn-outline-secondary">View Post</a>
-                                            
-                                           
-
+                                        <button onclick="getDetails(${post.id})" type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                            </div>
                                         </div>
-                                        <small class="text-muted">9 mins</small>
-                                    </div>
-                                </div>
+                                   </div>
+                                   </div>
                                 </div>
                             </div>
                         </div>`
@@ -37,20 +32,34 @@ function getPosts(){
             postsLayout.innerHTML = html;
     })
     .catch(err => console.log(err))
-}
-getPosts();
-//post onclick function
-function postOnClick(postId){
-    console.log(postId);
 
-    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+    
+}
+
+getPosts();
+
+function getDetails(id){
+    console.log("hello from inside getDetails function ")
+    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
-        let postBody = document.getElementById("post-body");
-        postBody.innerHTML = data.body;
-    }
-    )
-    .catch(err => console.log(err))
+        console.log(id)
+        console.log(data.title.toUpperCase())
+        let detailsLayout = document.getElementById("posts-layout");
+        let html = "";
+        html += `<div class="container">
+        <header>
+            <h3 >${data.title}</h3>
+            <img src="https://picsum.photos/300/200" alt="image">
+        </header>
+        <main>
+        <p>${data.body}</p>
+        </main>
+        <button onclick="getPosts()" type="button" class="btn btn-sm btn-outline-secondary">Return</button>
 
+    </div>`
+    detailsLayout.innerHTML  = html;
+    })
+    .catch(err => console.log(err))
 }
+

@@ -117,4 +117,3 @@ function getDetails(id) {
     detailsLayout.innerHTML  = html;
   }
 }
-

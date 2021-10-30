@@ -88,7 +88,7 @@ function getDetails(id) {
         html += `<div class="container">
         <header>
             <h3 class="display-4 text-capitalize" >${data.title}</h3>
-            <img class="mb-2 rounded mx-auto d-block img-fluid" src="https://picsum.photos/300/200?random=${id}" alt="image">
+            <img class="mb-2 rounded mx-auto d-block img-fluid float-end" src="https://picsum.photos/300/200?random=${id}" alt="image">
         </header>
         <main>
         <p class="pt-2 fs-4">${data.body}</p>

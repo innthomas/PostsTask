@@ -54,7 +54,7 @@ function getPosts() {
                               <div class="h-100 text-center  mx-auto">
                                           <div class="card mb-0 shadow-lg col text-center  h-100 py-5" style="width: 18rem;">
                                               <div class="card-body py-0">
-                                              <img src="https://picsum.photos/300/200?random=${post.id}" class="card-img-top">
+                                              <img src="https://picsum.photos/300/200?random=${post.id}" class="card-img-top img-fluid" >
                                                   <h5 class="card-title text-capitalize">${post.title}</h5>
                                                   <p class="card-text col-sm-3 font-italic text-truncate">${post.body}</p>
                                                       <div class="btn-group">

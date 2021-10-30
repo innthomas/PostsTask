@@ -1,11 +1,11 @@
-window.location = "#login";
+
 
 let postsLayout = document.getElementById("posts-layout");
 let detailsLayout = document.getElementById("posts-layout");
 let html = "";
 
 function getPosts() {
-  window.location.hash = "Posts";
+  window.location.hash = "AllPosts";
   //if posts is not in localstorage
   if (!localStorage.getItem("posts")) {
     //get posts from server
@@ -104,7 +104,7 @@ function getDetails(id) {
     let posts = JSON.parse(localStorage.getItem("posts"));
     // console.log(posts + "from details");
     let pstDetail = posts[id];
-    console.log(pstDetail.title.toUpperCase() + " from single post details");
+    console.log(" {Data from localstorage - single post details}" + pstDetail.title.toUpperCase() );
     let detailsLayout = document.getElementById("posts-layout");
     let html = "";
     html += `<div class="container">

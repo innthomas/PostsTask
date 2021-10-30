@@ -1,8 +1,11 @@
+window.location = "#login";
+
 let postsLayout = document.getElementById("posts-layout");
 let detailsLayout = document.getElementById("posts-layout");
 let html = "";
 
 function getPosts() {
+  window.location.hash = "Posts";
   //if posts is not in localstorage
   if (!localStorage.getItem("posts")) {
     //get posts from server
@@ -73,6 +76,7 @@ function getPosts() {
 getPosts();
 
 function getDetails(id) {
+  window.location.hash = `Post:${id}`;
   if (!localStorage.getItem("posts")) {
     fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
       .then((response) => response.json())
